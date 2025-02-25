@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: knight
   m_EditorClassIdentifier: 
   sprite: {fileID: 1300577292, guid: 3683728618ec0e048ab33103af1952c6, type: 3}
-  animatorController: {fileID: 9100000, guid: 60e38645e16dd1b4abeca221167e532e, type: 2}
+  _animatorController: {fileID: 9100000, guid: 60e38645e16dd1b4abeca221167e532e, type: 2}
   _ATK: 220
   _DEF: 100
   _HP: 1000

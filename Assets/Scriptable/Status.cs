@@ -12,7 +12,8 @@ public class Status : ScriptableObject
     private Sprite sprite;
 
     [SerializeField]
-    private AnimatorController animatorController;
+    private AnimatorController _animatorController;
+    public AnimatorController animatorController { get => _animatorController; }
 
     [Header("Basic Status")]
     [SerializeField]

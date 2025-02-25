@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d82bb2752318754f82b6aeb90f1c3ea, type: 3}
+  m_Name: Archer
+  m_EditorClassIdentifier: 
+  sprite: {fileID: -1289624629, guid: e26f20d8c607dfe408a393cc71851fc4, type: 3}
+  _animatorController: {fileID: 9100000, guid: 2d4e38ba5997ba64fad1173da3807145, type: 2}
+  _ATK: 220
+  _DEF: 100
+  _HP: 1000
+  _MP: 500
+  _ACC: 0.85
+  _EVA: 0.1
+  _CRIT: 0.1
+  _CRIT_DMG: 1.5
+  _attackSkillList:
+  - {fileID: 11400000, guid: 0442247f951cc9447b8039a3d6097dd3, type: 2}
+  - {fileID: 11400000, guid: 32b61513d4f95bc42b5889772b855eb2, type: 2}
+  _buffSkillList:
+  - {fileID: 11400000, guid: 9d145d6a4ae0c6749b81e3c13e7b9d24, type: 2}

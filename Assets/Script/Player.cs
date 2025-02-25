@@ -5,6 +5,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Player : MonoBehaviour
 {
+    public int playerNum;
+
     [SerializeField]
     private Status _playerData;
     public Status playerData { get => _playerData; }
@@ -41,6 +43,15 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        if (playerNum == 1) {
+             _playerData = CharacterManager.instance.player1;
+        }
+
+        else if (playerNum == 2)
+        {
+            _playerData = CharacterManager.instance.player2;
+        }
+
         this.ATK = _playerData.ATK;
         this.DEF = _playerData.DEF;
         this.HP = _playerData.HP;
@@ -52,6 +63,9 @@ public class Player : MonoBehaviour
 
         this.attackSkillList = _playerData.attackSkillList;
         this.buffSkillList = _playerData.buffSkillList;
+
+        Animator animator = gameObject.GetComponent<Animator>();
+        animator.runtimeAnimatorController = _playerData.animatorController;
 
     }
 
