@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        
         if (playerNum == 1) {
              _playerData = CharacterManager.instance.player1;
         }
@@ -51,7 +52,7 @@ public class Player : MonoBehaviour
         {
             _playerData = CharacterManager.instance.player2;
         }
-
+        
         this.ATK = _playerData.ATK;
         this.DEF = _playerData.DEF;
         this.HP = _playerData.HP;

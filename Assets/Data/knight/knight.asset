@@ -18,9 +18,9 @@ MonoBehaviour:
   _DEF: 100
   _HP: 1000
   _MP: 500
-  _ACC: 0.85
-  _EVA: 0.1
-  _CRIT: 0.1
+  _ACC: 80
+  _EVA: 60
+  _CRIT: 0.15
   _CRIT_DMG: 1.5
   _attackSkillList:
   - {fileID: 11400000, guid: 0442247f951cc9447b8039a3d6097dd3, type: 2}

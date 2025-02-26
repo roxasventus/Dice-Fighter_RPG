@@ -19,7 +19,20 @@ public class Scene : MonoBehaviour
         
     }
 
-    public void changeScene() { 
-        SceneManager.LoadScene(SceneName);
+    public void changeScene() {
+        if (SceneName == "BattleScene")
+        {
+            if (CharacterManager.instance.player1 != null && CharacterManager.instance.player2 != null)
+            {
+                SceneManager.LoadScene(SceneName);
+            }
+            else {
+                Debug.Log("캐릭터를 선택하십시오.");
+            }
+        }
+        else 
+        {
+            SceneManager.LoadScene(SceneName);
+        }
     }
 }
