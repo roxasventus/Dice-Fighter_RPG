@@ -35,9 +35,13 @@ public class BattleManager : MonoBehaviour
             attackerAnimator = attacker.GetComponent<Animator>();
             targetAnimator = target.GetComponent<Animator>();
 
+            attacker.MP -= attacker.attackSkillList[n].requireMP;
+
             if (IsAttackHit(attacker.ACC, target.EVA))
             {
                 Debug.Log("명중");
+
+
                 if (n == 0)
                 {
                     attackerAnimator.SetBool("attack", true);
@@ -53,7 +57,6 @@ public class BattleManager : MonoBehaviour
                         target.DEF = target.playerData.DEF;
                     }
 
-                    attacker.MP -= attacker.attackSkillList[n].requireMP;
                 }
                 else
                 {
@@ -112,7 +115,9 @@ public class BattleManager : MonoBehaviour
 
     public void useBuffSkill(int n)
     {
-        if (GameManager.instance.State == GameState.AttackPhase && attacker.MP >= attacker.attackSkillList[n].requireMP)
+        Debug.Log(attacker.MP);
+        Debug.Log(attacker.buffSkillList[n].requireMP);
+        if (GameManager.instance.State == GameState.AttackPhase && attacker.MP >= attacker.buffSkillList[n].requireMP)
         {
             attackerAnimator = attacker.GetComponent<Animator>();
             targetAnimator = target.GetComponent<Animator>();
@@ -159,7 +164,8 @@ public class BattleManager : MonoBehaviour
     public static bool IsAttackHit(float attackerACC, float defenderEVA)
     {
         int baseHitChance = 100; // 보정치
-        float hitRate = attackerACC - defenderEVA + baseHitChance; // 명중 확률 계산
+        //float hitRate = attackerACC - defenderEVA + baseHitChance; // 명중 확률 계산
+        float hitRate = (attackerACC / (attackerACC + defenderEVA)) * 100f;
 
         // 명중률의 최대치는 80%, 최소치는 20%로 제한 -> 명중 0%, 명중 100%가 나오지 못하도록 하기 위한 조치
         hitRate = Math.Clamp(hitRate, 20, 80);
