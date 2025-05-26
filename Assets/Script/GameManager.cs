@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject player1MenuUI;
     public GameObject player2MenuUI;
     public GameObject diceUI;
+    public GameObject resultUI;
+    public GameObject missUI;
 
     public GameState State = GameState.DicePhase;
 
@@ -90,6 +93,22 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("허용되지 않은 인덱스");
         }
+
+    }
+
+    public IEnumerator blinkUI(GameObject ui) { 
+    
+        ui.SetActive(true);
+
+        yield return new WaitForSeconds(1.0f); ;
+
+        ui.SetActive(false);
+
+    }
+
+    public void Restart() {
+
+        SceneManager.LoadScene("MainScene");
 
     }
 }

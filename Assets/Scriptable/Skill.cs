@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SkillData", menuName = "Scriptable Objects/SkillData")]
@@ -13,7 +12,7 @@ public class Skill : ScriptableObject
     public string skillName { get => _skillName; }
 
     [SerializeField]
-    private AnimatorController animatorController;
+    private RuntimeAnimatorController animatorController;
 
     [Header("Attack Data")]
     [SerializeField]

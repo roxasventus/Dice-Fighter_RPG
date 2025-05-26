@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -76,8 +77,7 @@ public class Player : MonoBehaviour
         if(BattleManager.instance.attacker != null  && BattleManager.instance.target != null){
             if (BattleManager.instance.target.HP <= 0)
             {
-                BattleManager.instance.attackerAnimator.SetBool("win", true);
-                BattleManager.instance.targetAnimator.SetBool("lose", true);
+                StartCoroutine(showWinner());
             }
         }
     }
@@ -106,5 +106,18 @@ public class Player : MonoBehaviour
 
     }
 
+    IEnumerator showWinner() {
+        BattleManager.instance.attackerAnimator.SetBool("win", true);
+        BattleManager.instance.targetAnimator.SetBool("lose", true);
+        
+        yield return new WaitForSeconds(2.0f);
+
+        if (BattleManager.instance.attacker.gameObject.name == "player1")
+            GameManager.instance.resultUI.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Winner is player1";
+        else
+            GameManager.instance.resultUI.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Winner is player2";
+
+        GameManager.instance.resultUI.SetActive(true);
+    }
 
 }

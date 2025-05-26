@@ -17,3 +17,5 @@ MonoBehaviour:
   animatorController: {fileID: 0}
   _damage: 0
   _requireMP: 0
+  _isAtkBuff: 0
+  _isDefBuff: 0

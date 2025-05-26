@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 
@@ -12,8 +11,8 @@ public class Status : ScriptableObject
     private Sprite sprite;
 
     [SerializeField]
-    private AnimatorController _animatorController;
-    public AnimatorController animatorController { get => _animatorController; }
+    private RuntimeAnimatorController _animatorController;
+    public RuntimeAnimatorController animatorController { get => _animatorController; }
 
     [Header("Basic Status")]
     [SerializeField]

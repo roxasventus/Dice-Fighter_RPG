@@ -65,6 +65,7 @@ public class BattleManager : MonoBehaviour
             }
             else {
                 Debug.Log("ºø³ª°¨");
+                StartCoroutine(GameManager.instance.blinkUI(GameManager.instance.missUI));
                 attackerAnimator.SetBool("attack", true);
                 targetAnimator.SetBool("avoid", true);
             }
